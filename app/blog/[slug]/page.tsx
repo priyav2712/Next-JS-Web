@@ -2,8 +2,20 @@
 
 import { BlogPostClientPage } from "./BlogPostClientPage"
 
+// Define the type for blog post structure
+interface BlogPost {
+  title: string;
+  description: string;
+  content: string;
+  image: string;
+  date: string;
+  readTime: string;
+  category: string;
+  tags: string[];
+}
+
 // This would typically come from a database or CMS
-const blogPosts = {
+const blogPosts: Record<string, BlogPost> = {
   "building-scalable-react-applications": {
     title: "Building Scalable React Applications",
     description:
@@ -72,8 +84,8 @@ function UserProfile({ user }) {
   return (
     <div className="user-profile">
       <Avatar src={user.avatar} alt={user.name} />
-      <UserInfo name={user.name} email={user.email} />
-      <UserStats postCount={user.postCount} followerCount={user.followerCount} />
+      <User Info name={user.name} email={user.email} />
+      <User Stats postCount={user.postCount} followerCount={user.followerCount} />
     </div>
   )
 }
@@ -111,7 +123,7 @@ function UserList() {
   return (
     <div>
       {users.map(user => (
-        <UserProfile key={user.id} user={user} />
+        <User Profile key={user.id} user={user} />
       ))}
     </div>
   )
@@ -304,3 +316,4 @@ export function generateMetadata({ params }: BlogPostPageProps) {
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   return <BlogPostClientPage params={params} />
 }
+
