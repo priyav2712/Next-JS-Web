@@ -1,5 +1,3 @@
-"use client"
-
 import { BlogPostClientPage } from "./BlogPostClientPage"
 
 // Define the type for blog post structure
